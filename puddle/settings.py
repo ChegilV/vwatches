@@ -85,16 +85,16 @@ WSGI_APPLICATION = 'puddle.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'JtSPKODlqd5wSO11ktTa',
-        'HOST': 'containers-us-west-139.railway.app',
-        'PORT': '7386',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'JtSPKODlqd5wSO11ktTa',
+#         'HOST': 'containers-us-west-139.railway.app',
+#         'PORT': '7386',
+#     }
+# }
 # import dj_database_url
 # dj_form_env = dj_database_url.config(conn_max_age=600)
 # DATABASES.['default'].update(dj_form_env)
