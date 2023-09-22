@@ -87,11 +87,11 @@ WSGI_APPLICATION = 'puddle.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'WebPage_Wathces',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'MotherFucker1',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'PASSWORD': 'JtSPKODlqd5wSO11ktTa',
+        'HOST': 'containers-us-west-139.railway.app',
+        'PORT': '7386',
     }
 }
 # import dj_database_url
@@ -134,8 +134,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'staticfiles')]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/images/'
