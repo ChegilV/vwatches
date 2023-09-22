@@ -1,0 +1,335 @@
+body{
+	word-wrap: break-word;
+	word-break: break-word;
+}
+
+.hidden{
+    display:none !important
+}
+
+section{
+	width: 100%;
+
+}
+
+header{display: none;}
+
+footer{
+	display: none;
+}
+.full-screen-img{
+	height: 300px;
+}
+.full-screen-img img{
+	
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+
+
+}
+
+.container{
+	display: flex;
+	justify-content: center;
+	
+	width: 100%;
+
+}
+
+.container .check-out-wrapper{
+	
+	width: 1560px;
+	display: flex;
+
+}
+
+.container .check-out-wrapper .fill-in-form-container{
+
+	
+	padding: 30px 10px 0 10px;
+	width: 44%;
+
+}
+
+.container .check-out-wrapper .fill-in-form-container .header-text p{
+	font-size: 32px;
+}
+
+.container .check-out-wrapper .fill-in-form-container .input-forms{
+	display: flex;
+	flex-direction: column;
+	max-width: 600px;
+	/*padding-right: 10px;*/
+
+}
+
+.container .check-out-wrapper .fill-in-form-container .input-forms .my-form{
+
+	width: 100%;
+	margin-top: 40px;
+}
+
+.container .check-out-wrapper .fill-in-form-container .input-forms  .my-form input{
+	width: 100%;
+	height: 50px;
+	border: 1px solid #000000;
+	background-color: rgba(146, 146, 146, 0.1);
+}
+
+.container .check-out-wrapper .fill-in-form-container .input-forms .city-postcode{
+	display: flex;
+	gap:100px;
+
+}
+
+.container .check-out-wrapper .fill-in-form-container .input-forms .city-postcode .my-form{
+	max-width: 250px;
+}
+
+.container .check-out-wrapper .fill-in-form-container .input-forms .city-postcode .my-form input{
+
+	width:100%;
+}
+
+
+.container .check-out-wrapper .bottom-of-fill{
+	margin-top: 40px;
+	max-width: 600px;
+	/*padding-right: 10px;*/
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+.container .check-out-wrapper .bottom-of-fill .return-to-cart a{
+	color: #BC1414;
+	font-family: "Noto Serif";
+	font-size: 16px;
+	font-weight: 700;
+}
+
+
+.container .check-out-wrapper .bottom-of-fill .return-to-cart a:hover{
+	color: rgba(192, 33, 206);
+}
+
+.container .check-out-wrapper .bottom-of-fill .btn-sbm{
+	width: 180px;
+	height: 55px;
+
+}
+
+.container .check-out-wrapper .bottom-of-fill .btn-sbm input{
+
+	width: 100%;
+	height: 100%;
+	border-radius: 5px;
+	background-color: #000000;
+	color: #ffff;
+	font-size: 24px;
+	font-family: "Noto Serif";
+	font-weight: 600;
+	transition: .2s;
+	cursor: pointer;
+}
+
+.container .check-out-wrapper .bottom-of-fill .btn-sbm input:hover{
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+
+
+.container .check-out-wrapper .bg-buy-watches{
+	width: 66%;
+	min-height: 100vh;
+	background-color: #EBEBEB;
+}
+
+.container .check-out-wrapper .bg-buy-watches .buy-watches-container{
+	max-width: 420px;
+	padding-right: 10px;
+	margin:30px 0 0 80px;
+}
+.container .check-out-wrapper .bg-buy-watches .buy-watches-container .item-container:first-child{
+    margin-top:0;
+}
+.container .check-out-wrapper .bg-buy-watches .buy-watches-container .item-container{
+    margin-top:10px;
+	max-width: 420px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.container .check-out-wrapper .bg-buy-watches .buy-watches-container .item-container .img-wrp{
+	
+	max-height: 90px;
+	max-width: 90px;
+}
+.container .check-out-wrapper .bg-buy-watches .buy-watches-container .item-container .img-wrp img{
+
+	width: 90px;
+	height: 90px;
+	border-radius: 5px;
+}
+
+.container .check-out-wrapper .bg-buy-watches .buy-watches-container .item-container .watch-name{
+
+	padding: 0 0 0 2px;
+	max-width: 230px;
+	margin-top: 10px;
+}
+
+.container .check-out-wrapper .bg-buy-watches .buy-watches-container .item-container .txt:last-child{
+	white-space: nowrap;
+
+	display: flex;	
+	align-items: center;
+}
+
+
+.container .check-out-wrapper .bg-buy-watches .buy-watches-container .item-container .txt span{
+	
+	font-weight: 400;
+	font-family: "Noto Serif";
+	font-size: 13px;
+}
+
+.container .check-out-wrapper .bg-buy-watches .buy-watches-container hr{
+	margin-top: 30px;
+	height: 2px;
+	color: #8B8B8B;
+}
+
+
+.container .check-out-wrapper .bg-buy-watches .buy-watches-container .sum-of-watches{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+.container .check-out-wrapper .bg-buy-watches .buy-watches-container .sum-of-watches .total-txt span,
+.container .check-out-wrapper .bg-buy-watches .buy-watches-container .sum-of-watches .price span{
+	font-family: "Noto Serif";
+	font-size: 20px;
+
+}
+.container .check-out-wrapper .bg-buy-watches .buy-watches-container .sum-of-watches .price span{
+	font-weight: 700;
+}
+
+
+@media(max-width: 900px){
+	.container{
+		margin-bottom: 70px;
+	}	
+
+	.container .check-out-wrapper{
+		flex-direction: column-reverse;
+	}
+
+	.container .check-out-wrapper .fill-in-form-container,
+	.container .check-out-wrapper .bg-buy-watches{
+		width: 100%;
+	}
+	.container .check-out-wrapper .bg-buy-watches{
+		padding-bottom: 100px;
+		min-height: auto;
+	}
+
+	.container .check-out-wrapper .bg-buy-watches {
+		display: flex;
+		justify-content: center;
+	}
+
+	.container .check-out-wrapper .bg-buy-watches .buy-watches-container{
+		margin:30px 0 0 0;
+		width: 100%;
+		padding:0 10px 0 10px;
+	}
+
+
+	.container .check-out-wrapper .fill-in-form-container .header-text p{
+		text-align: center;
+	}
+
+	.container .check-out-wrapper .bg-buy-watches .buy-watches-container .sum-of-watches .total-txt span,
+	.container .check-out-wrapper .bg-buy-watches .buy-watches-container .sum-of-watches .price span{
+		font-family: "Noto Serif";
+		font-size: 16px;
+
+	}
+
+	.container .check-out-wrapper .fill-in-form-container .input-forms-container{
+		/*margin:0 10px 0 10px;*/
+		display: flex;
+		justify-content: center;
+	}
+
+	.container .check-out-wrapper .fill-in-form-container .input-forms {
+		width: 100%;
+	}
+
+	
+
+
+	.container .check-out-wrapper .bottom-of-fill{
+		flex-direction: column-reverse;
+		min-width: 100%;
+		/*padding-right: 0;*/
+	}
+
+	.container .check-out-wrapper .bottom-of-fill .return-to-cart{
+		margin-top: 20px;	
+	}
+
+	.container .check-out-wrapper .fill-in-form-container .input-forms{
+	}
+
+	.container .check-out-wrapper .fill-in-form-container .input-forms .city-postcode{
+
+		display: block;
+	}
+
+	.container .check-out-wrapper .fill-in-form-container .input-forms .city-postcode .my-form{
+		max-width: 600px;
+
+	}
+
+	.container .check-out-wrapper .fill-in-form-container .box-element{
+		max-width: 100%;
+		display: flex;
+		justify-content: center;
+		
+	}
+
+	.container .check-out-wrapper .fill-in-form-container .box-element .paypal-container{
+		max-width: 600px;
+		width: 100%;
+	}
+}
+
+
+@media(max-width: 500px){
+	.container .check-out-wrapper .bg-buy-watches .buy-watches-container .item-container .img-wrp img{
+		width: 70PX;
+		height: 70PX;
+	}
+
+	.container .check-out-wrapper .bottom-of-fill .btn-sbm{
+		width: 117px;
+		height:36.75px; ;
+	}
+
+	.container .check-out-wrapper .bottom-of-fill .btn-sbm input{
+		font-size: 20px;
+	}
+
+	.container .check-out-wrapper .bottom-of-fill .return-to-cart a{
+		font-size: 12px;
+	}
+}	
