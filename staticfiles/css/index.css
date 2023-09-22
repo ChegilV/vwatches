@@ -1,0 +1,741 @@
+*{
+	box-sizing: border-box;
+	margin:0;
+	padding: 0;
+	
+	
+
+}
+body{
+	background-color: #fff;
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 16px;
+	min-height: 100vh;
+}
+
+ul,li{
+	text-decoration: none;
+	margin:0;
+	list-style-type: none;
+	
+}
+
+a {
+
+	text-decoration: none;
+	color: #fff;
+	font-size: 16px;
+}
+
+/*HEADER*/
+header {
+	position: relative;
+	padding:0 50px;
+	background-color: white;
+	border-bottom:2px solid black;
+}
+
+
+.navbar {
+
+	width: 100%;
+	height: 100px;
+	max-width: 1560px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.navbar .toggle-btn {
+	font-size: 1.5rem;
+	cursor:pointer;
+	display: none;
+
+}
+
+.navbar .menu {
+    z-index:1000;
+	display: flex;
+	gap: 10px;
+}
+
+.navbar .menu .nav-item{
+    margin-left:10px;
+}
+
+
+.navbar .menu .nav-item > a {
+
+	font-size: 28px;
+	color:#000000;
+
+
+}
+
+.navbar .menu .nav-item:first-child{
+    margin-left:0;
+}
+
+.navbar .menu .nav-item > a:after {
+	content: "";
+	position: absolute;
+	background-color: #000;
+	height: 3px;
+	width:0;
+	transition: width 0.25s ease-out;
+	left: 0;
+	bottom:-2px;
+}
+
+
+.navbar .menu .nav-item > a:hover:after {
+	width:100%;
+	visibility: visible;
+	opacity: 1;
+}
+
+
+.navbar .menu .brand-dropdown {
+	position: absolute;
+}
+
+
+
+.main-logo {
+	margin-right: 10%;
+}
+
+.main-logo h1 a{
+	font-size: 50px;
+	color:#000000;
+}
+
+.main-logo h1 a span{
+	background: linear-gradient(187.06deg, rgba(243, 174, 95, 0.87) 0%, #D3C4A5 83.55%);
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	text-fill-color: transparent;
+
+}
+
+
+
+.items-app{
+	display: flex;
+}
+
+.items-app .item-search {
+	margin-top: -8px;
+	display: flex;
+	align-items: center;
+}
+
+.items-app .item-search button{
+	background:none;
+	border: none;
+}
+
+
+
+/*.items-app .item-search .input{
+
+	border-radius: 3px;
+	border: 0;
+	outline: 0;
+	transition: .25s ease-in-out all;
+	width: 0;
+	padding: 0;
+	
+	height: 30px;
+
+	
+}*/
+/*@keyframes showInput{
+	from{opacity: 0;}
+	to{opacity: 1;}
+}*/
+
+
+@keyframes showInput{
+	0%{
+		opacity: 0;
+		transform:scale(0);
+	}
+	100%{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+
+.items-app .item-search .show-container{
+	display: none;
+	
+}
+
+.items-app .item-search .input-open{
+	display: block;
+	animation: showInput 500ms ease-in-out;
+}
+
+
+
+.items-app .item-search .input{
+	border-radius: 5px;
+	border: 1px solid black;
+	width: 150px;
+	margin-right: 10px;
+	height: 40px;
+	font-size: 16px;
+	margin-left: 5px;
+
+}
+
+/*#trigger_search{
+	display: none;
+}
+*/
+
+.items-app .items-quantity{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	width: 20px;
+	height: 30px;
+	background-color: red;
+	position: absolute;
+	top:20px;
+	margin-left: 20px;
+}
+
+.items-app .item {
+	margin-right: 50px;
+
+}
+
+.item-app i {
+	width: 20px;
+	height: 20px;
+}
+
+/*DROP-DOWN MENU*/
+.dropdown-menu {
+    
+	display: none;
+	position: absolute;
+	top:100px;
+	left: 0;
+	height: 0;
+	max-width: 300px;
+	width: 99%;
+	background: rgba(255, 255, 255, 1 );
+	backdrop-filter: blur(10px);
+	box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75);
+	overflow: hidden;
+	transition: height .2s cub-bezier(0.175, 0.885, 0.32, 1.275);
+	z-index: 999;
+
+}
+
+
+.dropdown-menu.open{
+	height: auto;
+	z-index: 999;
+}
+
+.dropdown-menu li {
+	color:#000000;
+	padding: 0.7rem;
+}
+
+.dropdown-menu a {
+
+	color: #000000;
+}
+
+.dropdown-menu li > a .flex-item-menu {
+	display: flex;
+	justify-content: space-between;
+	
+}
+
+.dropdown-menu li .under-menu {
+	display: none;
+}
+
+.dropdown-menu li .under-menu a{
+    color:#000000;
+	font-size: 13px;
+
+}
+
+.dropdown-menu li .under-menu li {
+    color:#000000;
+	margin-bottom: -15px;
+
+}
+
+.dropdown-menu li .under-menu li > a{
+    color:#000000;
+}
+
+.dropdown-menu li .under-menu li > a:hover {
+	color: rgba(0, 0, 0, 0.25);
+}
+
+.dropdown-menu li .under-menu ul > li > a {
+	font-size: 12px;
+
+}
+
+/*.dropdown-menu li .flex-item-menu span i:hover:after {
+	transform: rotate(-180deg);
+}*/
+
+/*
+.dropdown-menu li .under-menu.open-under .flex-item-menu span i {
+	color: red;
+}*/
+
+.dropdown-menu li .flex-item-menu.rot span i {
+	color: red;
+}
+
+.dropdown-menu li .rotate-item  span i.rotate{
+	/*transform: rotate(180deg);*/
+	transform: rotate(180deg);
+}
+
+
+
+
+
+.dropdown-menu li .under-menu ul {
+	display: none;
+}
+
+
+.dropdown-menu li .under-menu .flex-shop {
+	display: flex; 
+	justify-content: space-between;
+	align-items: center;
+}
+
+.dropdown-menu li .under-menu li .name-watch-new{
+	display: flex;
+	justify-content: center;
+
+}
+
+.dropdown-menu li .under-menu li .new-img img {
+	width: 100%;
+} 
+
+.dropdown-menu li .under-menu li .name-watch-new p{
+	
+	font-size: 14px;
+	
+}
+
+.dropdown-menu li .under-menu.open-under {
+	display: block;
+}
+
+
+
+
+.dropdown-menu li .under-menu li .colorSale.open-under{
+	display: block
+
+}
+
+.dropdown-menu .drop-btn.show~ .drop-show {
+	display: block;
+}
+
+
+.dropdown-menu .items-down {
+	display: flex;
+	justify-content:space-around;
+
+}
+
+
+
+.dropdown-menu .items-down i {
+	font-size: 1.5rem;
+}
+
+
+
+
+/*END DROPDOWN MENU*/
+
+
+
+/*BRANDS DROP DOWN MENU*/
+
+
+
+.navbar .menu .main-dropdown {
+
+	position: absolute;
+	height: 340px;
+	top:75px;
+
+	left:0;
+	color: white;
+	width: 100%;
+	background-color: black;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease-out;
+	box-shadow: 0px -5px 3px 0px rgba(0,0,0,0.75);
+
+}
+
+.navbar .menu .main-dropdown .main-container{
+	
+	margin: 30px auto;
+}
+
+.navbar .menu .nav-item:hover .main-dropdown {
+	opacity: 1;
+	visibility: visible;
+}
+
+
+.navbar .menu .main-dropdown .section > p {
+	width: 150px;
+	border-bottom: 1px solid rgba(255,255,255, 0.2);
+	font-size: 32px;
+	font-weight: 700;
+}
+.navbar .menu .main-dropdown .section li{
+	padding-top: 10px;
+}
+.navbar .menu .main-dropdown .section li > a {
+	font-size: 28px;
+	font-weight: 400;
+	color:#fff;
+}
+
+.navbar .menu .main-dropdown .section li > a:hover{
+	color: rgba(255,255,255, 0.7);
+}
+
+
+.navbar .menu .man .main-dropdown .main-container,
+.navbar .menu .women .main-dropdown .main-container{
+	display: flex;
+	justify-content: space-around;
+}
+.navbar .menu .new .main-dropdown {
+	height: 390px;
+
+}
+
+
+
+.navbar .menu .new .main-dropdown .main-container div .name-watch-new {
+	display: flex;
+	justify-content: center;
+	font-family: "Bebas Neue";
+	font-size: 30px;
+	width: 90px;
+	margin-top: 15px;
+	padding: 0 50%;
+}
+
+
+
+
+.navbar .menu .new .main-dropdown .main-container img{
+	width: 380px;
+	box-shadow: 0px 0px 8px 1px rgba(247,247,247,0.7);
+
+}
+
+.navbar .menu .new .main-dropdown .main-container img:hover {
+	transform: scale(1.07);
+
+	transition: .2s ease-in-out;
+}
+
+
+
+/*RESPONSIVE DESIGN HEADER*/
+@media(max-width: 1160px) {
+	.navbar .menu, 
+	.navbar .items-app{
+		display: none;
+	}
+
+
+	.navbar .main-logo {
+		margin: auto;
+	}
+
+	.navbar .toggle-btn{
+		display: block;
+	}
+
+	.dropdown-menu {
+		display: block;
+
+	}
+}
+
+
+
+@media (max-width: 768px) {
+
+
+	.navbar .toggle-btn {
+		position: absolute;
+		left: 30px ;
+	}
+
+}
+
+
+@media (max-width: 576px) {
+
+
+	.navbar {
+		height: 80px;
+	}
+	.navbar .toggle-btn {
+		position: absolute;
+		left: 15px ;
+	}
+
+	.navbar .main-logo a {
+		font-size: 28px;
+	}
+
+	.dropdown-menu {
+		top:80px;
+		left: 0;
+		
+	}
+}
+
+
+
+
+/*FOOTER*/
+footer {
+	
+	font-family: 'Noto Serif';
+	border-top: 1px solid #000;
+	position: sticky;
+	top:100%;
+	height: auto;
+	background-color: #FCFAFA;
+	padding-top: 100px;
+	
+}
+
+.main-container {
+	padding: 0 40px;
+	max-width: 1560px;
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	
+
+}
+
+/*LEFT*/
+.subsc-text {
+
+	max-width: 280px;
+	border-bottom: 3px solid black;
+}
+.subsc-text p {
+	font-family: 'Noto Serif';
+	font-size: 24px;
+}
+
+
+.media-app {
+	padding-top: 10px;
+}
+
+.media-app img {
+	margin-right: 20px;
+}
+
+
+.footer-logo {
+	padding-top: 40px;
+}
+
+.footer-logo a h1{
+	font-family: "Bebas Neue";
+	font-weight: 400;
+	color: #000;
+	font-size: 64px;
+}
+
+.footer-logo a span {
+	background: linear-gradient(187.06deg, rgba(243, 174, 95, 0.87) 0%, #D3C4A5 83.55%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+}
+
+
+/*MIDDLE*/
+
+footer .middle{
+	max-width: 275px;
+}
+
+.middle h1 {
+	
+	font-size: 36px;
+}
+
+.middle .mid-text p{
+	font-size: 24px;
+	font-weight: 400;
+	margin-top: 30px;
+}
+
+
+/*Right*/
+
+.right-side h1 {
+	font-size: 36px ;
+}
+
+
+.right-side .payment-app {
+	padding-top: 10px;
+}
+
+.right-side .payment-app img {
+	margin-right: 20px;
+}
+
+.right-side .feed-back {
+	width: 55%;
+	margin-top: 50px;
+}
+
+.right-side .feed-back a {
+	position: relative;
+}
+.right-side .feed-back a:after {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 4px;
+	background-color: black;
+	transition: 0.3s ease-out;
+	-webkit-transition: 0.3s ease-out;
+	-moz-transition:0.3s ease-out;
+	-ms-transition:0.3s ease-in-out;
+
+}
+
+.right-side .feed-back a:hover:after {
+	width: 100%;
+
+}
+
+.right-side h1 {
+
+	color: #000;
+	font-size: 38px;
+}
+
+footer .copyright {
+	display: flex;
+	justify-content: center;
+	padding-bottom: 30px;
+}
+
+footer .copyright div  {
+	margin-right: 3px;
+	font-size: 10px;
+	font-weight: 700;
+}
+
+@media (max-width: 1060px) {
+	footer .main-container  h1, p{
+
+		font-size: 25px;
+	}
+
+	footer .main-container img {
+		width: 30px;
+		height: 30px;
+	}
+
+	footer .copyright div p {
+		font-size: 10px;
+	}
+}
+
+@media (max-width: 930px) {
+	footer {
+		padding-top: 30px;
+	}
+
+	.main-container {
+		
+		align-items: center;
+		flex-direction: column;
+		
+	}
+
+
+	.left-side .footer-logo {
+		padding-top: 20px;
+
+	}
+
+	.left-side .footer-logo a h1 {
+		font-size: 36px;
+	}
+
+	.main-container .middle{
+		padding-top: 30px;
+		padding-right: 25px;
+	}
+
+	.middle .mid-text p {
+		margin-top: 15px;
+	}
+
+	.right-side .pay-method {
+		padding-top: 40px;
+	}
+
+	.right-side .feed-back {
+		margin-top: 20px;
+
+	}
+
+	footer .copyright {
+		display: flex;
+		justify-content: center;
+		padding-bottom: 20px;
+		margin-top: 20px;
+	}
+
+}
+@media (max-width: 350px){
+	.middle{
+
+		display: none;
+	}
+}
