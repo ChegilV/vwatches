@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'puddle.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'WebPage_Wathces',
         'USER': 'postgres',
         'PASSWORD': 'MotherFucker1',
