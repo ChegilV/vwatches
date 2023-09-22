@@ -30,7 +30,7 @@ DEBUG = False
 
 # ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1", '*']
 ALLOWED_HOSTS = ['web-production-8000.up.railway.app', '127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['https://web-production-8000.up.railway.app']
+# CSRF_TRUSTED_ORIGINS = ['https://web-production-8000.up.railway.app']
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'registApp.apps.RegistappConfig',
     'stores.apps.StoresConfig',
-
     'whitenoise.runserver_nostatic',
 ]
 
