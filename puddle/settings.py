@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'registApp.apps.RegistappConfig',
     'stores.apps.StoresConfig',
+
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
