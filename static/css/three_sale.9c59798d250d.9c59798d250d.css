@@ -1,0 +1,190 @@
+.container-sale{
+
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 0 50px 0 50px;
+
+}
+
+.container-sale .box-sale{
+	margin-top: 70px;
+	max-width: 1560px;
+	width: 100%;
+	box-sizing: border-box;
+	margin-bottom: 70px;
+}
+
+.container-sale .box-sale .sale-wrapper{
+	width: 100%;
+}
+
+
+
+
+
+
+.container-sale .box-sale .main-text{
+	display: flex;
+	justify-content: center;
+	margin-bottom: 40px;
+	text-align: center;
+
+}
+
+.container-sale .box-sale .main-text h3{
+	color: #000;
+	font-family:"Noto Serif";
+	font-size: 40px;
+	font-weight: 400;
+}
+
+.container-sale .box-sale .sale-wrapper .grid-items {
+	margin-top: 60px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+	grid-gap: 50px 50px;
+
+}
+
+.container-sale .box-sale .sale-wrapper .grid-items .item .hover-img .photo{
+	display: flex;
+	justify-content: center;
+
+}
+
+.container-sale .box-sale .sale-wrapper .grid-items .item .hover-img .photo img{
+	max-width: 350px;
+	max-height: 350px;
+	min-width: 25px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	transition: transform .5s ease;
+}
+
+
+.container-sale .box-sale .sale-wrapper .grid-items .item .hover-img .photo img:hover{
+	transform: scale(1.05);
+}
+
+
+
+.container-sale .box-sale .sale-wrapper .grid-items .item .wrapper-box{
+	display: flex;
+	justify-content: center;
+}
+
+.container-sale .box-sale .sale-wrapper .grid-items .item .wrapper-box .box-element{
+	margin-top: 10px;
+}
+
+.container-sale .box-sale .sale-wrapper .grid-items .item .wrapper-box .box-element .watches-name{
+	text-align: center;
+	font-size: 22px;
+
+	font-family: "Noto Serif";
+}
+
+.container-sale .box-sale .sale-wrapper .grid-items .item .wrapper-box .box-element .price{
+	white-space: nowrap;
+	font-size:21px;
+	font-family: "Noto Serif";
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	gap:15px;
+}
+
+.container-sale .box-sale .sale-wrapper .grid-items .item .wrapper-box .box-element .price p:first-child{
+	text-decoration: line-through;
+	color: #787878;
+}
+
+.container-sale .box-sale .sale-wrapper .grid-items .item .wrapper-box .box-element .price p:last-child{
+	color: #FF0404;
+}
+
+
+.container-sale .btn-cont{
+	display: flex;
+	justify-content: center;
+	padding: 0 5px;
+}
+
+.container-sale .box-sale .btn-view{
+
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	background-color: #000000;
+	margin-top: 100px;
+	border-radius: 5px;
+
+
+}
+
+.container-sale .box-sale .btn-view a{
+	color: #fff;
+	padding: 10px 40px;
+	font-size: 36px;
+	font-family: "Bebas Neue";
+}
+
+.container-sale .box-sale .btn-view:hover{
+	background-color: #787878;
+	transition: .2s;
+}
+
+@media(max-width: 960px){
+	.container-sale .box-sale .sale-wrapper .grid-items {
+		grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+
+	}
+}
+
+
+
+
+@media(max-width: 560px){
+
+	.container-sale .box-sale .sale-wrapper .grid-items {
+		margin-top: 60px;
+		display: block;
+
+	}
+	.container-sale .box-sale .sale-wrapper .grid-items .item{
+
+		margin-top: 50px;
+	}
+
+	.container-sale .box-sale .sale-wrapper .home-text a{
+		font-size: 10px;
+	}
+
+	.container-sale .box-sale .sale-wrapper .header-text{
+
+		font-size:32px;
+	}
+
+	.container-sale .box-sale .sale-wrapper .grid-items .item .wrapper-box .box-element .watches-name{
+		font-size: 5vw;
+	}
+
+	.container-sale .box-sale .sale-wrapper .grid-items .item .wrapper-box .box-element .price p {
+		font-size: 5vw;
+	}
+
+	.container-for-sale .box-discount-watches .main-text h3{
+		font-size: 32px;
+	}
+
+	.container-sale .box-sale .btn-view a{
+
+		font-size: 16px;
+	}
+
+	.container-sale .box-sale .main-text h3{
+		font-size: 32px;
+	}
+}

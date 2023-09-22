@@ -1,0 +1,194 @@
+body{
+	box-sizing: border-box;
+
+}
+.container-prod{
+
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 0 50px 0 50px;
+	
+}
+
+.container {
+	margin-top: 100px;
+	margin-bottom: 70px;
+	max-width: 1560px;
+	width: 100%;
+}
+.container .wrapper-cont{
+
+	width: 100%;
+	display: flex;
+}
+
+.container .wrapper-cont .left-side{
+	display: flex;
+	flex-grow: 2;
+}
+
+
+
+.container .wrapper-cont .left-side .main-photo img{
+	max-width: 615px;
+	width:100%;
+	/*height: auto;*/
+}
+
+.container .wrapper-cont .left-side .column-photo{
+	display: flex;
+ 	flex-direction: column;
+ 	flex-basis:150px;
+}
+
+.container .wrapper-cont .left-side .column-photo img{
+
+	width: 100px;
+	height: 100px;
+
+}
+
+.container .wrapper-cont .right-side{
+	max-width: 580px;
+	width: 100%;
+}
+
+.container .wrapper-cont .right-side .watch-name{
+	max-width: 580px;
+	margin-top: 0;
+	font-family: "Noto Serif";
+	font-size: 36px;
+}
+
+.container .wrapper-cont .right-side .price{
+	font-size: 36px;
+	font-weight: 700;
+	font-family: "Noto Serif";
+}
+
+
+
+
+.container .wrapper-cont .right-side .btn{
+	
+	margin-top: 75px;
+	width: 100%;
+
+}
+
+.container .wrapper-cont .right-side .btn button{
+	cursor: pointer;
+	border: none;
+	background-color: #000000;
+	width: 95%;
+	height: 90px;
+	color: #fff;
+	font-size: 40px;
+	font-family: "Bebas Neue";
+}
+
+.container .wrapper-cont .right-side .btn button:hover{
+	background-color:#6F5852;
+	transition: .2s;
+}
+
+.container .wrapper-cont .right-side *{
+	margin-top: 15px;
+
+}
+
+@media (max-width: 1000px){
+	
+	.container .wrapper-cont .right-side .watch-name,
+	.container .wrapper-cont .right-side .price{
+		font-size: 28px;
+	}
+
+	.container .wrapper-cont .right-side .btn{
+		margin-top: 50px;
+	}
+}
+
+@media (max-width: 780px){
+
+	.container-prod{
+		padding: 0 10px 0 10px; 
+	}
+	.container .wrapper-cont .left-side .main-photo img{
+		/*min-width: 45px;*/
+		/*width: 100%;*/
+	}
+	.container .wrapper-cont .left-side .column-photo img{
+		margin: 10px;
+		max-width: 80px;
+		max-height: 80px;
+		width: 100%;
+		height: 100%;
+	}
+
+	.container .wrapper-cont{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.container .wrapper-cont .right-side .btn{
+		display: flex;
+		justify-content: center;
+		margin-top: 0;
+	}
+	.container .wrapper-cont .left-side{
+		flex-direction:column-reverse;
+		
+	}
+
+	.container .wrapper-cont .right-side{
+		display:flex;
+		flex-direction: column;
+		align-items: center;
+
+
+	}
+
+	.container .wrapper-cont .right-side .waranty img{
+		width: 100%;
+		height: 100%;
+	}
+
+	.container .wrapper-cont .right-side .watch-name{
+
+		text-align: center;
+		font-size: 24px;
+	}
+
+	.container .wrapper-cont .right-side .price{
+
+		font-size: 24px;
+		white-space: nowrap;
+	}
+
+	.container .wrapper-cont .left-side .column-photo{
+		margin-top: 30px;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+
+	}
+
+	.container .wrapper-cont .left-side .column-photo img{
+		margin:0 5px 0 0;
+	
+	}
+
+	.container .wrapper-cont .right-side .btn button{
+		font-size: 16px;
+		border-radius: 5px;
+		height: 50px;
+	}
+
+}
+
