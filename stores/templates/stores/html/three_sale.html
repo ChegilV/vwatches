@@ -1,0 +1,42 @@
+
+{%load static%}
+{% block htmlhead %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/three_sale.css' %}">
+{% endblock htmlhead %}
+
+<section class="container-sale">
+    <div class="box-sale">
+        <div class="sale-wrapper">
+             <div class="main-text">
+                <h3>DISCOUNT WATCHES</h3>
+            </div>
+
+            <div class="grid-items">
+                 {% for sale_product in three_sale_products %}
+                 <div class="item">
+                    <a href="collection/all_sale_products/{{sale_product.name}}" class="hover-img">
+                        <div class="photo"><img src="{{sale_product.imageURL}}" alt=""></div>
+
+                        <div class="wrapper-box">
+                            <div class="box-element product">
+                                <div class="watches-name" ><span>{{ sale_product.name }}</span></div>
+                                <div class="price">
+                                    <p class="price-off">$ {{ sale_product.price|floatformat:2 }}</p>
+                                    <p class="price-old">$ {{ sale_product.sale_price|floatformat:2}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+
+             <div class="btn-cont">
+                <div class="btn-view">
+                    <a href="{% url 'all_sale_products' %}">VIEW ALL</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,133 @@
+
+{% extends 'core/html/base.html' %}
+{% load static %}
+{% block htmlhead %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
+
+  <script type="text/javascript">
+        let user = '{{request.user}}'
+
+        function getToken(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== ''){
+                let cookies = document.cookie.split(";");
+                for(let i=0; i<cookies.length; i++){
+                    let cookie = cookies[i].trim();
+
+                    if(cookie.substring(0, name.length + 1) === (name + '=')){
+                        cookieValue = decodeURIComponent(cookie.substring(name.length+1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        let csrftoken = getToken("csrftoken");
+
+        function getCookie(name){
+            let cookieArr = document.cookie.split(";");
+
+            for(let i=0; i<cookieArr.length; i++){
+                let cookiePair = cookieArr[i].split("=");
+
+                if(name == cookiePair[0].trim()){
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+            return null;
+        }
+
+        let cart = JSON.parse(getCookie('cart'))
+        if(cart == undefined){
+            cart = {}
+            console.log('CART was created')
+            document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+        }
+        console.log('CART:', cart)
+
+    </script>
+{% endblock htmlhead %}
+
+{% block title %}Welcome {%endblock%}
+
+
+{% block content %}
+
+<section>
+    <div class="row">
+        <div class="wrapper-container">
+            <div class="main-text">
+                <span>SHOPPING BAG</span>
+            </div>
+
+            <div class="first-box">
+                {% for item in items %}
+                    <div class="box-element">
+                        <div class="img-text-box">
+                            <div class="img-box">
+                                <img src="{{item.product.imageURL}}" alt="">
+                            </div>
+                            <div class="text-and-btn">
+                                <p>{{item.product.name}}</p>
+                                <button class="update-cart" data-product="{{item.product.id}}" data-action="removeAll">Remove</button>
+                            </div>
+                        </div>
+
+                        <div class="right-side">
+                            <div class="quantity" id="quantity-of-watches">
+                                <p>{{item.quantity}}</p>
+                                <div class="arrows">
+                                    <img src="{% static 'phot/arrow_up.svg' %}" alt="arrow_up" data-product="{{item.product.id}}" data-action="add" class=" update-cart">
+                                    <img src="{% static 'phot/arrow_down.svg' %}" alt="arrow_down" data-product="{{item.product.id}}" data-action="remove" class=" update-cart">
+
+                                </div>
+                            </div>
+
+                            <div class="center-btn">
+                                <buttom class="update-cart" data-product="{{item.product.id}}" data-action="removeAll"><span>Remove</span></buttom>
+                            </div>
+
+                            <div class="price">
+                                <span>${{item.get_total|floatformat:2}}</span>
+                            </div>
+                        </div>
+
+                    </div>
+                {% endfor %}
+            </div>
+
+
+            <div class="second-box">
+                <div class="left-side">
+                    <div class="subtotal">
+                        <span>Subtotal:</span>
+                    </div>
+
+                    <div class="all-price">
+                        <span>$ {{order.get_cart_total|floatformat:2}}</span>
+                    </div>
+                </div>
+
+                {% if order.get_cart_total <= 0 %}
+                <div class="right-side">
+                    <form action="">
+                        <button   onclick="">PROCEED TO CHECKOUT</button>
+                    </form>
+                </div>
+                {% else %}
+                <div class="right-side">
+                    <form action="{% url 'checkout' %}">
+                        <button   onclick="">PROCEED TO CHECKOUT</button>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+
+</section>
+{%endblock%}

@@ -1,0 +1,47 @@
+{% extends 'core/html/base.html' %}
+
+{% block htmlhead %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+{% endblock htmlhead %}
+
+{% block title %}Welcome {%endblock%}
+
+
+{% block content %}
+<!--<form action="" method="POST">-->
+
+
+
+<!--<input type="Submit" name="Create User">-->
+</form>
+
+    <section>
+        <div class="registr_app">
+            <div class="form">
+                <h1>Sign Up</h1>
+                <form class="registration-form" method="POST">
+                    {% csrf_token %}
+                    <h3>Username</h3>
+<!--                    <input type="text" name="firstname" placeholder="First Name"><br>-->
+                        {{form.username}}<br>
+                    <h3>EMAIL</h3>
+                    {{form.email}}<br>
+                    <h3>PASSWORD</h3>
+                    {{form.password1}}<br>
+                    <h3>CONFIRM PASSWORD</h3>
+                    {{form.password2 }}<br>
+                    <input type="Submit" value="CREATED" class="submit-registr-but">
+                    <div class="but-log">
+                        <h4><a href="{% url 'login' %}">Log in</a></h4>
+                    </div>
+                </form>
+                {{form.errors}}
+
+<!--                {% for message in messages %}-->
+<!--                <h2>{{message}}</h2>-->
+<!--                {% endfor %}-->
+            </div>
+        </div>
+    </section
+{%endblock%}

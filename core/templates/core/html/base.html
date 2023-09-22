@@ -1,0 +1,429 @@
+{% load static %}
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% block htmlhead %}
+
+    {% endblock htmlhead %}
+
+    <script type="text/javascript">
+        let user = '{{request.user}}'
+
+        function getToken(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== ''){
+                let cookies = document.cookie.split(";");
+                for(let i=0; i<cookies.length; i++){
+                    let cookie = cookies[i].trim();
+
+                    if(cookie.substring(0, name.length + 1) === (name + '=')){
+                        cookieValue = decodeURIComponent(cookie.substring(name.length+1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        let csrftoken = getToken("csrftoken");
+    </script>
+    <title>{% block title %} {%endblock%} | Puddle</title>
+</head>
+    <body>
+        <header>
+            <div class="navbar">
+                <div class="toggle-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <ul class="menu">
+                    <li class="nav-item brand"><a href="{% url 'collections' %}">Brands <i class="fa-solid fa-angle-down fa-2xs"></i></a>
+                        <div class="main-dropdown brand-drop ">
+                            <div class="main-container">
+                                <div class="section">
+                                    <p>A-B</p>
+                                    <ul>
+                                        <li><a href="{% url 'armani_product' %}">Armani</a></li>
+                                        <li><a href="{% url 'astronic_product' %}">Astronic</a></li>
+                                        <li><a href="{% url 'ballast_product' %}">Ballast</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="section">
+                                    <p>B-C</p>
+                                    <ul>
+                                        <li><a href="{% url 'bulova_product' %}">Bulova</a></li>
+                                        <li><a href="{% url 'breitling_product' %}">Breitling</a></li>
+                                        <li><a href="{% url 'california_product' %}">California Watch Co.</a></li>
+                                        <li><a href="{% url 'casio_product' %}">Casio</a></li>
+                                        <li><a href="{% url 'citizen_product' %}">Citizen</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="section">
+                                    <p>G-M</p>
+                                    <ul>
+                                        <li><a href="{% url 'g_shock_product' %}">G-Shock</a></li>
+                                        <li><a href="{% url 'jason_hyde_product' %}">Jason Hyde</a></li>
+                                        <li><a href="{% url 'm2z_product' %}">M2Z</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="section">
+                                    <p>R-Z</p>
+                                    <ul>
+
+                                        <li><a href="{% url 'timex_product' %}">Timex</a></li>
+                                        <li><a href="{% url 'zodiac_product' %}">Zodiac</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item man"><a href="">Man <i class="fa-solid fa-angle-down fa-2xs"></i></a>
+                        <div class="main-dropdown man-drop">
+                            <div class="main-container">
+                                <div class="section">
+                                    <p>Shop on Sale</p>
+                                    <ul>
+                                        <li><a href="{% url 'sale_armani' %}">Armani</a></li>
+                                        <li><a href="{% url 'sale_california' %}">California Watch Co.</a></li>
+                                        <li><a href="{% url 'sale_g_shock' %}">G-Shock</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="section">
+                                    <p>Shop by Color</p>
+                                    <ul>
+                                        <li><a href="{% url 'black_man_color' %}">Black</a></li>
+                                        <li><a href="{% url 'gold_man_color' %}">Gold</a></li>
+                                        <li><a href="{% url 'blue_man_color' %}">Blue</a></li>
+                                        <li><a href="{% url 'silver_man_color' %}">Silver</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+
+
+                    <li class="nav-item women">
+                        <a href="">Women <i class="fa-solid fa-angle-down fa-2xs"></i></a>
+                         <div class="main-dropdown women-drop">
+                            <div class="main-container">
+                                <div class="section">
+                                    <p>Shop on Sale</p>
+                                    <ul>
+                                        <li><a href="{% url 'sale_w_g_shock' %}">G-Shock</a></li>
+                                        <li><a href="{% url 'sale_w_jason_hyde' %}">Jason Hyde</a></li>
+                                        <li><a href="{% url 'sale_w_timex' %}">Timex</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="section">
+                                    <p>Shop by Color</p>
+                                    <ul>
+                                        <li><a href="{% url 'black_women_color' %}">Black</a></li>
+                                        <li><a href="{% url 'gold_women_color' %}">Gold</a></li>
+                                        <li><a href="{% url 'blue_women_color' %}">Blue</a></li>
+                                        <li><a href="{% url 'silver_women_color' %}">Silver</a></li>
+                                        <li><a href="{% url 'colorful_women_color' %}">Colorful</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item new"><a href="">New <i class="fa-solid fa-angle-down fa-2xs"></i></a>
+                       <div class="main-dropdown new-drop">
+                            <div class="main-container">
+                                    <div>
+                                      <a href="{% url 'astronic_product' %}">  <img src="{% static 'phot/Astronic.jpg' %}" alt=""></a>
+                                        <div class="name-watch-new"><p>Astronic</p></div>
+
+                                    </div>
+                                    <div>
+                                       <a href="{% url 'bulova_product' %}"> <img src="{% static 'phot/bulova1.jpg' %}" alt=""></a>
+                                        <div class="name-watch-new"><p>Bullova</p></div>
+
+                                    </div>
+                                    <div>
+                                        <a href="{% url 'casio_product' %}"><img src="{% static 'phot/Casio.jpg' %}" alt=""></a>
+                                        <div class="name-watch-new"><p>Casio</p></div>
+
+                                    </div>
+
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="main-logo">
+                    <h1><a href="/"><span>V.</span>WATHCES</a></h1>
+                </div>
+
+                <div class="items-app">
+                    <div class="item item-search">
+
+                        <form action="{% url 'core:hok' %}" method="get" id="form-search">
+                            <div class="show-container">
+                                <button onclick="show()" type="Submit" id="trigger_search"><i class='fas fa-search fa-2xl'></i></button>
+                                <input  type="text" id="search-item" name="searched" class="input" placeholder="Search Here.."/>
+                            </div>
+                        </form>
+                         <button onclick="show()" class="trigger_search_btn"><i class='fas fa-search fa-2xl'></i></button>
+
+                    </div>
+                    {% if user.is_authenticated %}
+                    <div class="item"><a href="{% url 'logout' %}"><img src="{% static 'phot/logout.svg' %}" alt=""></a></div>
+                    {% else %}
+                    <div class="item"><a href="{% url 'signup' %}"><img src="{% static 'phot/acc_use.svg' %}" alt=""></a></div>
+                    {% endif %}
+                    <div class="item"><a href="{% url 'cart' %}"><img src="{% static 'phot/shop_bag.svg' %}" alt=""></a>
+                        <p class="items-quantity">{{cartItems}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown-menu" id="navDrop-menu">
+                <li>
+                    <a href="##"  onclick="toggleBrandUnderMenu()" class="rotate-item">
+                        <div class="flex-item-menu">
+                            <span>Brands</span>
+                            <span><i id="rotate-brands" class="fa-solid fa-angle-down fa-2xs"></i></span>
+                        </div>
+                    </a>
+                    <ul class="under-menu" id="brandSubMenu">
+                        <li><a href="{% url 'armani_product' %}">Armani</a></li>
+                        <li><a href="{% url 'astronic_product' %}">Astronic</a></li>
+                        <li><a href="{% url 'ballast_product' %}">Ballast</a></li>
+                        <li><a href="{% url 'bulova_product' %}">Bulova</a></li>
+                        <li><a href="{% url 'breitling_product' %}">Breitling</a></li>
+                        <li><a href="{% url 'california_product' %}">California Watch Co.</a></li>
+                        <li><a href="{% url 'casio_product' %}">Casio</a></li>
+                        <li><a href="{% url 'citizen_product' %}">Citizen</a></li>
+                        <li><a href="{% url 'g_shock_product' %}">G-Shock</a></li>
+                        <li><a href="{% url 'jason_hyde_product' %}">Jason Hyde</a></li>
+                        <li><a href="{% url 'm2z_product' %}">M2Z</a></li>
+
+                        <li><a href="{% url 'timex_product' %}">Timex</a></li>
+                        <li><a href="{% url 'zodiac_product' %}">Zodiac</a></li>
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="##" onclick="toggleManUnderMenu()" class="rotate-item">
+                        <div class="flex-item-menu">
+                            <span>Man</span>
+                            <span><i id="rotate-man" class="fa-solid fa-angle-down fa-2xs"></i></span>
+                        </div>
+                    </a>
+
+                    <ul class="under-menu" id="manSubMenu">
+                       <li>
+                           <a href="##" onclick="manShopSale()">
+                               <div class="flex-shop">
+                                   <span>Shop on Sale</span>
+                                   <span><i class="fa-sharp fa-regular fa-plus fa-2xs"></i></span>
+                               </div>
+                            </a>
+
+                           <ul id="shop-on-saleM" class="colorSale">
+                               <li><a href="{% url 'sale_armani' %}">Armani</a></li>
+                               <li><a href="{% url 'sale_california' %}">California Watch Co.</a></li>
+                               <li><a href="{% url 'sale_g_shock' %}">G-Shock</a></li>
+                           </ul>
+
+                       </li>
+                       
+                       <li>
+                           <a href="##" onclick="manShopColor()">
+                               <div class="flex-shop">
+                                   <span>Shop by Color</span>
+                                   <span><i class="fa-sharp fa-regular fa-plus fa-2xs"></i></span>
+                               </div>
+                           </a>
+
+                           <ul id="shop-by-colorM" class="colorSale">
+                               <li><a href="{% url 'black_man_color' %}">Black</a></li>
+                               <li><a href="{% url 'gold_man_color' %}">Gold</a></li>
+                               <li><a href="{% url 'blue_man_color' %}">Blue</a></li>
+                               <li><a href="{% url 'silver_man_color' %}">Silver</a></li>
+
+                           </ul>
+                       </li>
+                    </ul>
+
+                </li>
+                <li>
+                    <a href="##" onclick="toggleWomenUnderMenu()" class="rotate-item">
+                         <div class="flex-item-menu">
+                            <span>Women</span>
+                            <span><i id="rotate-women" class="fa-solid fa-angle-down fa-2xs"></i></span>
+                        </div>
+                    </a>
+
+                     <ul class="under-menu" id="womenSubMenu">
+                       <li>
+                           <a href="##" onclick="womenShopSale()">
+                               <div class="flex-shop">
+                                   <span>Shop on Sale</span>
+                                   <span><i class="fa-sharp fa-regular fa-plus fa-2xs"></i></span>
+                               </div>
+                            </a>
+
+                           <ul id="shop-on-saleW" class="colorSale">
+                               <li><a href="{% url 'sale_w_g_shock' %}">G-Shock</a></li>
+                               <li><a href="{% url 'sale_w_jason_hyde' %}">Jason Hyde</a></li>
+                               <li><a href="{% url 'sale_w_timex' %}">Timex</a></li>
+                           </ul>
+
+                       </li>
+
+                       <li>
+                           <a href="##" onclick="womenShopColor()">
+                               <div class="flex-shop">
+                                   <span>Shop by Color</span>
+                                   <span><i class="fa-sharp fa-regular fa-plus fa-2xs"></i></span>
+                               </div>
+                           </a>
+
+                           <ul id="shop-by-colorW" class="colorSale">
+                               <li><a href="{% url 'black_women_color' %}">Black</a></li>
+                               <li><a href="{% url 'gold_women_color' %}">Gold</a></li>
+                               <li><a href="{% url 'blue_women_color' %}">Blue</a></li>
+                               <li><a href="{% url 'silver_women_color' %}">Silver</a></li>
+                               <li><a href="{% url 'colorful_women_color' %}">Colorful</a></li>
+                           </ul>
+                       </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="##" onclick="toggleNewUnderMenu()" class="rotate-item">
+                        <div class="flex-item-menu">
+                            <span>New </span>
+                            <span><i  id="rotate-new" class="fa-solid fa-angle-down fa-2xs"></i></span>
+                        </div>
+                    </a>
+                    <ul class="under-menu" id="newProd">
+                        <li>
+                            <a href="#" class="new-img">
+                                <img src="{% static 'phot/Astronic.jpg' %}" alt="">
+                            </a>
+                            <div class="name-watch-new"><p>Astronic</p></div>
+                        </li>
+
+                        <li>
+                            <a href="#" class="new-img">
+                                <img src="{% static 'phot/bulova1.jpg' %}" alt="">
+                            </a>
+                            <div class="name-watch-new"><p>Bullova</p></div>
+                        </li>
+                        <li>
+                            <a href="#" class="new-img">
+                                <img src="{% static 'phot/Casio.jpg' %}" alt="">
+                            </a>
+                            <div class="name-watch-new"><p>Casio</p></div>
+                        </li>
+                    </ul>
+
+                </li>
+                <div class="items-down">
+                    <li><a href="#"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket" style="color: #000000;"></i></a></li>
+                    {% else %}
+                    <li><a href="{% url 'signup' %}"><i class="fa-regular fa-user fa-2xl"></i></a></li>
+                    {% endif %}
+                    <li><a href="{% url 'cart' %}"><i class="fa-sharp fa-solid fa-bag-shopping fa-2xl"></i></a></li>
+                </div>
+            </div>
+
+
+
+        </header>
+
+
+        <div class="px-6 py-6">
+            {% block content %}
+
+            {%endblock%}
+        </div>
+
+
+        <footer>
+            <div class="main-container">
+                <div class="left-side general-c">
+                    <div class="subsc-text">
+                         <p>Subscribe and receive notifications about a profitable purchase</p>
+                    </div>
+
+                    <div class="media-app">
+                        <a href=""><img src="{% static 'phot/twitter.svg' %}" alt=""></a>
+                        <a href=""><img src="{% static 'phot/youtube.svg' %}" alt=""></a>
+                        <a href=""><img src="{% static 'phot/facebook.svg' %}" alt=""></a>
+                        <a href=""><img src="{% static 'phot/instagram.svg' %}" alt=""></a>
+                    </div>
+
+                    <div class="footer-logo">
+                        <a href="/"><h1><span>V.</span>WATHCES</h1></a>
+                    </div>
+
+                </div>
+
+                <div class="middle general-c">
+                    <h1>Contact Us</h1>
+                    <div class="mid-text">
+                        <p>v.wathces@gmail.com</p>
+                        <p>+380 96 066-74-52</p>
+                    </div>
+                </div>
+
+                <div class="right-side general-c">
+                    <div class="pay-method"><h1>PAYMENTS METHOD</h1></div>
+
+                    <div class="payment-app">
+                        <img src="{% static 'phot/visa.svg' %}" alt="">
+                        <img src="{% static 'phot/jcb.svg' %}" alt="">
+                        <img src="{% static 'phot/paypal.svg' %}" alt="">
+                        <img src="{% static 'phot/credit.svg' %}" alt="">
+                    </div>
+
+                    <div class="feed-back">
+                        <a href="/"><h1>FEED BACK</h1></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="copyright">
+                <div class="logo-copy">
+                    <i class="fa-sharp fa-regular fa-copyright fa-2xs"></i>
+                </div>
+
+                <div class="text-copy">
+                    <p>V.Watches. All Rights Reserved</p>
+                </div>
+            </div>
+        </footer>
+
+
+
+        <script src="{% static 'js/toggle.js' %}"> </script>
+        <script src="{% static 'js/brand.js' %}"> </script>
+        <script src="{% static 'js/new.js' %}"> </script>
+        <script src="{% static 'js/search_button.js' %}"> </script>
+        <script src="{% static 'js/searching_func.js' %}" defer> </script>
+    </body>
+</html>
