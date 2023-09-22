@@ -26,10 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-+c-3^%%qgw_f#0+(mt-@bpwcuzftue*+^g_hjc*)a@ly=8@rh#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1", '*']
-ALLOWED_HOSTS = ['127.0.0.1', 'vwatches-chegil-9ae3d61ab0bc.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # Application definition
 
@@ -87,16 +87,16 @@ WSGI_APPLICATION = 'puddle.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dbalhui14788cg',
-        'USER': 'uiulictrdyhmcx',
-        'PASSWORD': 'bc47b0a1cb6b2bf56a2eb9c1f8803e7e0c2b042f7281d9a5936b4148f0b46699',
-        'HOST': 'ec2-52-1-92-133.compute-1.amazonaws.com',
+        'NAME': 'WebPage_Wathces',
+        'USER': 'postgres',
+        'PASSWORD': 'MotherFucker1',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
-import dj_database_url
-dj_form_env = dj_database_url.config(conn_max_age=600)
-DATABASES.['default'].update(dj_form_env)
+# import dj_database_url
+# dj_form_env = dj_database_url.config(conn_max_age=600)
+# DATABASES.['default'].update(dj_form_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -145,4 +145,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
