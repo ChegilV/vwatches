@@ -45,11 +45,12 @@ def signup(request):
 
             username = form.cleaned_data.get('username')
             email = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password')
             # group = Group.objects.get(name='customer')
             # user.groups.add(group)
             customer_save = Customer.objects.create(
                 user=user,username=username,
-                email=email,
+                email=email, password=password,
             )
             customer_save.save()
 
