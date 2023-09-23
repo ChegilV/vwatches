@@ -3,7 +3,7 @@ from decouple import config
 
 
 SECRETE_KEY = config('SECRETE_KEY')
-ALLOWED_HOSTS = ['vwatches-chegil.up.railway.app']
+ALLOWED_HOSTS = ['vwatches.up.railway.app']
 
 DATABASES = {
     'default': {
