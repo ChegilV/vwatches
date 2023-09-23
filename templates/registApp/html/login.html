@@ -3,6 +3,30 @@
 {% block htmlhead %}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <style>
+    .login_app .form .but-log {
+        display:flex;
+        justify-content:center;
+        margin-top:20px;
+
+    }
+
+    .login_app .form .but-log a {
+
+        font-size: 24px;
+        color:black;
+    }
+
+    .login_app .form .but-log h4 a{
+        text-decoration: underline 0.15em rgba(60, 60, 60, 0);
+        transition: text-decoration-color 0.3s;
+    }
+
+    .login_app .form .but-log h4 a:hover {
+      text-decoration-color: rgba(60, 60, 60, 1);
+    }
+    </style>
+
 
 {% endblock htmlhead %}
 
