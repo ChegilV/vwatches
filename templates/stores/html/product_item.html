@@ -59,9 +59,9 @@
 
         <div class="wrapper-cont">
              <div class="left-side">
-                 <div class="column-photo">
+                 <div class="column-photo" >
                      {% for i in sale_products.images_set.all %}
-                     <div class="img-box"> <img class="image" src="/images/{{i.imagesList}}" alt=""></div>
+                     <div style="cursor:pointer;" class="img-box"> <img class="image" src="/images/{{i.imagesList}}" alt=""></div>
                      {% endfor %}
                  </div>
 

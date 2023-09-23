@@ -176,11 +176,11 @@
 
                         <form action="{% url 'core:hok' %}" method="get" id="form-search">
                             <div class="show-container">
-                                <button style="curson:pointer" onclick="show()" type="Submit" id="trigger_search"><i class='fas fa-search fa-2xl'></i></button>
+                                <button style="cursor:pointer;" onclick="show()" type="Submit" id="trigger_search"><i class='fas fa-search fa-2xl'></i></button>
                                 <input  type="text" id="search-item" name="searched" class="input" placeholder="Search Here.."/>
                             </div>
                         </form>
-                         <button style="curson:pointer" onclick="show()" class="trigger_search_btn"><i class='fas fa-search fa-2xl'></i></button>
+                         <button style="cursor:pointer;" onclick="show()" class="trigger_search_btn"><i class='fas fa-search fa-2xl'></i></button>
 
                     </div>
                     {% if user.is_authenticated %}
