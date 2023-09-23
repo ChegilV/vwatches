@@ -318,20 +318,20 @@
                     </a>
                     <ul class="under-menu" id="newProd">
                         <li>
-                            <a href="#" class="new-img">
+                            <a href="{% url 'astronic_product' %}" class="new-img">
                                 <img src="{% static 'phot/Astronic.jpg' %}" alt="">
                             </a>
                             <div class="name-watch-new"><p>Astronic</p></div>
                         </li>
 
                         <li>
-                            <a href="#" class="new-img">
+                            <a href="{% url 'bulova_product' %}" class="new-img">
                                 <img src="{% static 'phot/bulova1.jpg' %}" alt="">
                             </a>
                             <div class="name-watch-new"><p>Bullova</p></div>
                         </li>
                         <li>
-                            <a href="#" class="new-img">
+                            <a href="{% url 'casio_product' %}" class="new-img">
                                 <img src="{% static 'phot/Casio.jpg' %}" alt="">
                             </a>
                             <div class="name-watch-new"><p>Casio</p></div>
@@ -340,7 +340,6 @@
 
                 </li>
                 <div class="items-down">
-                    <li><a href="#"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></a></li>
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'logout' %}"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket" style="color: #000000;"></i></a></li>
                     {% else %}
