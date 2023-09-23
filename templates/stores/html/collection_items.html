@@ -1,0 +1,42 @@
+{% extends 'core/html/base.html' %}
+{% load static %}
+{% block htmlhead %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/collections.css' %}">
+
+    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+{% endblock htmlhead %}
+
+{% block title %}Welcome {%endblock%}
+{% block content %}
+<section class="container-sale">
+    <div class="box-sale">
+        <div class="sale-wrapper">
+            <div class="home-text">
+                <a href="/">Home/</a>
+            </div>
+
+            <div class="header-text">
+                <span>All brands</span>
+            </div>
+
+            <div class="grid-items">
+                {% for collection_product in collection_products %}
+                 <div class="item">
+                    <a href="{{collection_product.brandName}}" class="hover-img">
+                        <div class="photo-wrapper">
+                            <div class="photo-txt">
+                                <div class="photo">
+                                   <img src="{{collection_product.imageURL}}" alt="">
+                                    <p class="label">{{collection_product.brandName}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{%endblock%}

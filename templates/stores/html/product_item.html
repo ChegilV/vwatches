@@ -1,0 +1,107 @@
+{% extends 'core/html/base.html' %}
+
+
+{% block htmlhead %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/product_item.css' %}">
+
+
+     <script type="text/javascript">
+        let user = '{{request.user}}'
+
+        function getToken(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== ''){
+                let cookies = document.cookie.split(";");
+                for(let i=0; i<cookies.length; i++){
+                    let cookie = cookies[i].trim();
+
+                    if(cookie.substring(0, name.length + 1) === (name + '=')){
+                        cookieValue = decodeURIComponent(cookie.substring(name.length+1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        let csrftoken = getToken("csrftoken");
+
+        function getCookie(name){
+            let cookieArr = document.cookie.split(";");
+
+            for(let i=0; i<cookieArr.length; i++){
+                let cookiePair = cookieArr[i].split("=");
+
+                if(name == cookiePair[0].trim()){
+                    return decodeURIComponent(cookiePair[1]);
+                }
+            }
+            return null;
+        }
+
+        let cart = JSON.parse(getCookie('cart'))
+        if(cart == undefined){
+            cart = {}
+            console.log('CART was created')
+            document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+        }
+        console.log('CART:', cart)
+
+    </script>
+
+
+{% endblock htmlhead %}
+
+
+{% block content %}
+<section class="container-prod">
+<div class="container">
+
+        <div class="wrapper-cont">
+             <div class="left-side">
+                 <div class="column-photo">
+                     {% for i in sale_products.images_set.all %}
+                     <div class="img-box"> <img class="image" src="/images/{{i.imagesList}}" alt=""></div>
+                     {% endfor %}
+                 </div>
+
+
+
+                <div class="main-photo" >
+                    <img id="main-img" src="{{sale_products.imageURL}}" alt="">
+    <!--            <img src="{% static 'phot/Rectangle 42.jpg' %}" alt="">-->
+                </div>
+            </div>
+
+            <div class="right-side">
+                <div class="watch-name">
+                    <span>{{sale_products.name}}</span>
+                </div>
+                <div class="price">
+                    {% if sale_products.sale_price != null %}
+                    <span>$ {{sale_products.sale_price|floatformat:2}}</span>
+                    {% else %}
+                    <span>$ {{sale_products.price|floatformat:2}}</span>
+                    {% endif %}
+                </div>
+                <div class="waranty">
+                    <img src="{% static 'phot/wARRANTY.jpg' %}" alt="">
+                </div>
+
+                <div class="btn">
+                    <button class="update-cart" data-product="{{sale_products.id}}" data-action="add">Add to Bag</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<script>
+
+
+
+</script>
+
+<script type="text/javascript" src="{% static 'js/product_det_img.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'core/html/base.html' %}
+{% load static %}
+{% block htmlhead %}
+
+ <link rel="stylesheet" type="text/css" href="{% static 'css/all_sale_products.css' %}">
+{% endblock htmlhead %}
+
+{% block title %}Welcome {%endblock%}
+
+
+{% block content %}
+<section class="container-sale">
+    <div class="box-sale">
+        <div class="sale-wrapper">
+            <div class="home-text">
+                <a href="/">Home/</a>
+            </div>
+
+            <div class="header-text">
+                <span>G-Shock</span>
+            </div>
+
+            <div class="grid-items">
+                 {% for sale_product in sale_products %}
+                 {% if sale_product.brand_name == "G-Shock" %}
+                 <div class="item">
+
+                    <a href="{{sale_product.name}}" class="hover-img">
+                        <div class="photo"><img src="{{sale_product.imageURL}}" alt=""></div>
+
+                        <div class="wrapper-box">
+                            <div class="box-element product">
+                                <div class="watches-name" ><span>{{ sale_product.name }}</span></div>
+                                <div class="price">
+                                     {% if sale_product.sale_price != null %}
+                                    <p class="price-old">$ {{ sale_product.price|floatformat:2 }}</p>
+                                    <p class="price-off">$ {{ sale_product.sale_price|floatformat:2}}</p>
+                                    {%else%}
+                                    <p class="normal-price">$ {{ sale_product.price|floatformat:2}}</p>
+                                    {%endif%}
+
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

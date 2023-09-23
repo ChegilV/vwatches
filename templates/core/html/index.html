@@ -1,0 +1,101 @@
+{% extends 'core/html/base.html'%}
+
+
+
+{% block title %}Welcome {%endblock%}
+{% block htmlhead %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index1.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+{% endblock htmlhead %}
+
+
+
+{% block content %}
+<section class="container">
+<!--===================SLIDER===================-->
+    <div class="slider">
+        <div class="slide active ">
+            <img src="{% static 'phot/index-photo/first-photo.jpg' %}" alt="">
+        </div>
+        <div class="slide">
+            <img src="{% static 'phot/index-photo/second-photo.jpg' %}" alt="">
+        </div>
+        <div class="slide">
+            <img src="{% static 'phot/index-photo/third-photo.jpg' %}" alt="">
+        </div>
+        <div class="navigation">
+            <i class="fas fa-chevron-left prev-btn"></i>
+            <i class="fas fa-chevron-right next-btn"></i>
+        </div>
+
+        <div class="navigation-visibility">
+            <div class="slide-icon active"></div>
+            <div class="slide-icon"></div>
+            <div class="slide-icon"></div>
+        </div>
+    </div>
+<!--===================END SLIDER===================-->
+
+<!--===================POPULAR COLLECTION===================-->
+    <div class="popular-collection-container">
+        <div class="popular-collection">
+            <div class="header-text">
+                <h2>Popular Collection</h2>
+            </div>
+
+            <div class="photo-wrapper">
+                <div class="watch-photo">
+                    <a href="{% url 'armani_product' %}"><img src="{% static 'phot/popCollectionPH/ARMANI.jpg' %}" alt=""></a>
+
+                </div>
+                <div class="watch-photo">
+                    <a href="{% url 'casio_product' %}"><img src="{% static 'phot/popCollectionPH/Casio.jpg' %}" alt=""></a>
+
+                </div>
+                <div class="watch-photo">
+                    <a href="{% url 'g_shock_product' %}"><img src="{% static 'phot/popCollectionPH/G-Shock.jpg' %}" alt=""></a>
+
+                </div>
+                <div class="watch-photo">
+                    <a href="{% url 'zodiac_product' %}"><img src="{% static 'phot/popCollectionPH/ZODIAC.jpg' %}" alt=""></a>
+                </div>
+            </div>
+            <div class="quote"><p>Listening to the ticking of the clock, we notice that time is ahead of us</p></div>
+        </div>
+    </div>
+<!--===================END OF POPULAR COLLECTION===================-->
+    
+   <div class="rolex-container">
+       <div class="index-rolex">
+           <div class="left-side">
+               <img src="{% static 'phot/index_breitling_discover/main_photo.jpg' %}" alt="">
+           </div>
+           <div class="right-side">
+               <div class="element-of-side">
+                   <div class="image-rolex">
+                       <div class="rolex"><img src="{% static 'phot/index_breitling_discover/breitling_watch.jpg' %}" alt=""></div>
+                       <a href="{% url 'breitling_product' %}" class="discover-text"><p>Discover the watch</p></a>
+                   </div>
+
+                   <div class="purple-text"><p>CHOOSE A SHADE FOR YOURSELF</p></div>
+                   <div class="image-logo"><img src="{% static 'phot/index_breitling_discover/breitling-logo.jpg' %}" alt=""></div>
+               </div>
+           </div>
+       </div>
+   </div> 
+
+
+    {% include 'stores/html/three_sale.html'%}
+
+
+</section>
+
+
+<script type="text/javascript" src="{% static 'js/slider_act_button.js' %}"></script>
+
+
+{%endblock%}
+
+<!--src="{% static 'js/slider_act_button.js' %}"-->
